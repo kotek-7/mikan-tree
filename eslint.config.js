@@ -9,6 +9,7 @@ export default tseslint.config(
   ...tseslint.configs.stylistic,
   reactRecommended,
   {
+    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     rules: {
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
