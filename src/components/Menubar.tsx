@@ -16,7 +16,7 @@ export const MenubarContent = forwardRef<ElementRef<typeof Content>, ComponentPr
   (props, ref) => (
     <Content
       ref={ref}
-      className="rounded p-1 shadow"
+      className="rounded bg-white p-1 shadow"
       {...props}
     />
   )

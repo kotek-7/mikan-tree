@@ -1,5 +1,5 @@
 @layer base {
-  root {
+  :root {
     user-select: none;
     cursor: default;
   }
