@@ -1,5 +1,6 @@
 import Navbar from "./organisms/Navbar";
-import Card from "./molecules/Card";
+import ControlPanel from "./organisms/ControlPanel";
+import CardList from "./organisms/CardList";
 
 export default function App() {
   return (
@@ -7,18 +8,9 @@ export default function App() {
       <div className="col-span-full">
         <Navbar />
       </div>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(8rem,1fr))] gap-2 p-2 auto-rows-[8rem]">
-        <Card title="Title"/>
-        <Card title="Title"/>
-        <Card title="Title"/>
-        <Card title="Title"/>
-        <Card title="Title"/>
-        <Card title="Title"/>
-        <Card title="Title"/>
-        <Card title="Title"/>
-      </div>
-      <div className="bg-red-300">
-
+      <CardList />
+      <div className="">
+        <ControlPanel />
       </div>
     </div>
   );
