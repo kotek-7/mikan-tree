@@ -1,9 +1,9 @@
-import Navbar from "./organisms/Navbar";
-import ControlPanel from "./organisms/ControlPanel";
-import CardList, { Card } from "./organisms/CardList";
+import Navbar from "../organisms/Navbar";
+import ControlPanel from "../organisms/ControlPanel";
+import CardList, { Card } from "../organisms/CardList";
 import { useState } from "react";
 
-export default function App() {
+export default function InstancesPage() {
   const [selectedCardId, setSelectedCardId] = useState<number>(0);
 
   const cards: Card[] = (() => {
@@ -19,11 +19,13 @@ export default function App() {
       <div className="col-span-full">
         <Navbar />
       </div>
-      <CardList cards={cards} selectedCardId={selectedCardId} setSelectedCardId={setSelectedCardId}/>
+      <CardList
+        cards={cards}
+        selectedCardId={selectedCardId}
+        setSelectedCardId={setSelectedCardId}
+      />
       <div className="">
-        <ControlPanel
-          selectedCard={cards[selectedCardId]}
-        />
+        <ControlPanel selectedCard={cards[selectedCardId]} />
       </div>
     </div>
   );
