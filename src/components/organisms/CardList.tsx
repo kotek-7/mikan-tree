@@ -6,17 +6,17 @@ interface Card {
   id: number;
 }
 
-const [selectedCard, setSelectedCard] = useState<number>(0);
-
-const cards: Card[] = (() => {
-  const resultCards: Card[] = [];
-  for (let i = 0; i < 10; i++) {
-    resultCards.push({ title: "Title", id: i });
-  }
-  return resultCards;
-})();
-
 export default function CardList() {
+  const [selectedCard, setSelectedCard] = useState<number>(0);
+
+  const cards: Card[] = (() => {
+    const resultCards: Card[] = [];
+    for (let i = 0; i < 10; i++) {
+      resultCards.push({ title: "Title", id: i });
+    }
+    return resultCards;
+  })();
+
   return (
     <div className="grid auto-rows-[8rem] grid-cols-[repeat(auto-fill,minmax(8rem,1fr))] gap-2 p-2">
       {cards.map((card) => (
