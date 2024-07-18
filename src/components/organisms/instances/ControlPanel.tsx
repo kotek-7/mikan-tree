@@ -1,5 +1,5 @@
 import { invoke } from "@tauri-apps/api/tauri";
-import ControlPanelButton from "../molecules/ControlPanelButton";
+import ControlPanelButton from "../../molecules/ControlPanelButton";
 import { Card } from "./CardList";
 
 interface Props {
@@ -12,7 +12,7 @@ export default function ControlPanel(props: Props) {
   }
 
   function openModsPage() {
-    invoke("open_docs")
+    invoke("open_mods_page");
   }
 
   return (
