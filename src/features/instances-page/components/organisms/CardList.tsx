@@ -1,5 +1,5 @@
 import { Card } from "@/types/card";
-import InstanceCard from "@/components/molecules/Card";
+import InstanceCard from "@/features/instances-page/components/molecules/Card";
 
 interface Props {
   cards: Card[],

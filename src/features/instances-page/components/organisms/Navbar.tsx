@@ -1,5 +1,5 @@
 import * as Menubar from "@radix-ui/react-menubar";
-import { MenubarContent, MenubarTrigger, MenubarItem } from "../../wrappers/Menubar";
+import { MenubarContent, MenubarTrigger, MenubarItem } from "@/components/wrappers/Menubar";
 
 export default function Navbar() {
   return (

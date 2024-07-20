@@ -1,4 +1,4 @@
-import ModListElement from "@/components/molecules/ModListElement";
+import ModListElement from "@/features/mods-page/components/molecules/ModListElement";
 import { Mod } from "@/types/mod";
 
 

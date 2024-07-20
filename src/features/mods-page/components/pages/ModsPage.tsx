@@ -1,7 +1,7 @@
-import ModList from "@/components/organisms/mods/ModList";
+import ModList from "@/features/mods-page/components/organisms/ModList";
 import { Mod } from "@/types/mod";
 import { useState } from "react";
-import ControlPanel from "../organisms/mods/ControlPanel";
+import ControlPanel from "@/features/mods-page/components/organisms/ControlPanel";
 
 export default function ModsPage() {
   const mods: readonly Mod[] = [
@@ -39,7 +39,12 @@ export default function ModsPage() {
           <ModList mods={mods} selectedModId={selectedModId} setSelectedModId={setSelectedModId}/>
         </div>
         <div className="">
-          {(mods.find((mod) => mod.id == selectedModId))?.name}
+          <div>
+            {(mods.find((mod) => mod.id == selectedModId))?.name}
+          </div>
+          <div>
+            id: {selectedModId}
+          </div>
         </div>
       </div>
       <div className="fixed bottom-0 text-sm pb-1 px-2 border-t w-full">

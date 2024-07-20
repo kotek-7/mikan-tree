@@ -1,6 +1,6 @@
-import Navbar from "../organisms/instances/Navbar";
-import ControlPanel from "../organisms/instances/ControlPanel";
-import CardList from "../organisms/instances/CardList";
+import Navbar from "@/features/instances-page/components/organisms/Navbar";
+import ControlPanel from "@/features/instances-page/components/organisms/ControlPanel";
+import CardList from "@/features/instances-page/components/organisms/CardList";
 import { useState } from "react";
 import { Card } from "@/types/card";
 
