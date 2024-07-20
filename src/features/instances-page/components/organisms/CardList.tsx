@@ -9,7 +9,7 @@ interface Props {
 
 export default function CardList(props: Props) {
   return (
-    <div className="grid auto-rows-[8rem] grid-cols-[repeat(auto-fill,minmax(8rem,1fr))] gap-2 p-2 overflow-y-auto">
+    <div className="grid auto-rows-[8rem] grid-cols-[repeat(auto-fill,minmax(6rem,1fr))] gap-2 p-2 overflow-y-auto">
       {props.cards.map((card) => (
         <InstanceCard
           key={card.id}

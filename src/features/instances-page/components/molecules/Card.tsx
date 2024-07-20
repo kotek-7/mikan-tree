@@ -1,4 +1,6 @@
+import { Image } from "@/types/image";
 import { twMerge } from "tailwind-merge";
+import flan from "@/assets/images/flan.png"
 
 interface Props {
   title: string;
@@ -13,11 +15,11 @@ export default function Card(props: Props) {
       onClick={() => props.onclick(props.id)}
       className={twMerge(
         props.selected ? "ring" : "",
-        "flex flex-col items-center justify-center rounded-xl border bg-white shadow hover:bg-slate-100 active:bg-slate-200"
+        "flex flex-col items-center justify-center rounded px-1 border bg-white shadow hover:bg-slate-100 active:bg-slate-200"
       )}
     >
-      <div className="h-12 w-12 bg-red-200"></div>
-      <div className="mt-2 text-lg">{props.title}</div>card
+      <img src={Image.from(flan).path} className="w-12 object-cover"></img>
+      <div className="mt-2 text-center line-clamp-2 text-sm">{props.title}</div>
     </button>
   );
 }

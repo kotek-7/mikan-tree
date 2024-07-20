@@ -10,7 +10,7 @@ export default function InstancesPage() {
   const cards: Card[] = (() => {
     const resultCards: Card[] = [];
     for (let i = 0; i < 10; i++) {
-      resultCards.push({ title: "Title", id: i });
+      resultCards.push({ title: "Sky Factory 4 [Forge] - refined", id: i });
     }
     return resultCards;
   })();
