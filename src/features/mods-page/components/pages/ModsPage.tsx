@@ -1,5 +1,5 @@
 import ModList from "@/features/mods-page/components/organisms/ModList";
-import { Mod } from "@/types/mod";
+import { Mod } from "@/features/mods-page/types/mod";
 import { useState } from "react";
 import ControlPanel from "@/features/mods-page/components/organisms/ControlPanel";
 
