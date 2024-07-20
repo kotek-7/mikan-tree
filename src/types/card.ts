@@ -1,4 +1,4 @@
 export interface Card {
-  title: string;
-  id: number;
+  readonly title: string;
+  readonly id: number;
 }

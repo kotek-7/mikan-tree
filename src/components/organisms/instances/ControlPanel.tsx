@@ -1,6 +1,6 @@
 import { invoke } from "@tauri-apps/api/tauri";
 import ControlPanelButton from "../../molecules/ControlPanelButton";
-import { Card } from "./CardList";
+import { Card } from "@/types/card";
 
 interface Props {
   selectedCard: Card;

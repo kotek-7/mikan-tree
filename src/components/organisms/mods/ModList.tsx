@@ -1,7 +1,28 @@
-export default function ModList() {
+import ModListElement from "@/components/molecules/ModListElement";
+import { Mod } from "@/types/mod";
+
+
+
+interface Props {
+  selectedModId: string;
+  setSelectedModId: (id: string) => void;
+  mods: readonly Mod[];
+}
+
+export default function ModList(props: Props) {
   return (
     <div>
-      mods
+      <ul className="divide-y">
+        {props.mods.map((mod) => (
+          <ModListElement
+            name={mod.name}
+            selected={mod.id == props.selectedModId}
+            setSelectedModid={props.setSelectedModId}
+            id={mod.id}
+            key={mod.id}
+          />
+        ))}
+      </ul>
     </div>
   );
 }

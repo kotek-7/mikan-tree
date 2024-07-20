@@ -1,7 +1,8 @@
 import Navbar from "../organisms/instances/Navbar";
 import ControlPanel from "../organisms/instances/ControlPanel";
-import CardList, { Card } from "../organisms/instances/CardList";
+import CardList from "../organisms/instances/CardList";
 import { useState } from "react";
+import { Card } from "@/types/card";
 
 export default function InstancesPage() {
   const [selectedCardId, setSelectedCardId] = useState<number>(0);
