@@ -1,6 +1,7 @@
 import ModListElement from "@/features/mods-page/components/molecules/ModListElement";
 import { Mod } from "@/features/mods-page/types/mod";
-
+import icon from "@/assets/images/alice.png"
+import { Image } from "@/types/image";
 
 
 interface Props {
@@ -19,6 +20,7 @@ export default function ModList(props: Props) {
             selected={mod.id == props.selectedModId}
             setSelectedModid={props.setSelectedModId}
             id={mod.id}
+            icon={Image.from(icon)}
             key={mod.id}
           />
         ))}
