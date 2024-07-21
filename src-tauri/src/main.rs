@@ -1,6 +1,8 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod instance;
+
 fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![open_docs, open_mods_page, test])
@@ -24,7 +26,7 @@ async fn open_mods_page(handle: tauri::AppHandle) {
     println!("open mods page");
     tauri::WindowBuilder::new(
         &handle,
-        "local", /* the unique window label */
+        "mods", /* the unique window label */
         tauri::WindowUrl::App("mods.html".into()),
     )
     .build()
