@@ -5,7 +5,7 @@ export const MenubarTrigger = forwardRef<ElementRef<typeof Trigger>, ComponentPr
   (props, ref) => (
     <Trigger
       ref={ref}
-      className="my-1 rounded px-3 py-0.5 hover:bg-slate-100 active:bg-slate-200"
+      className="my-0.5 rounded px-3 hover:bg-slate-100 active:bg-slate-200"
       {...props}
     />
   )
@@ -16,7 +16,7 @@ export const MenubarContent = forwardRef<ElementRef<typeof Content>, ComponentPr
   (props, ref) => (
     <Content
       ref={ref}
-      className="rounded bg-white p-1 shadow"
+      className="rounded bg-white p-0.5 shadow"
       {...props}
     />
   )

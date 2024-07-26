@@ -9,6 +9,7 @@ export function useCards(): [Card[], () => void] {
     fetchInstances().then((instances) => {
       const cards = instances.map((instance) => Card.fromInstance(instance))
       setCards(cards);
+      console.log("instances loaded");
     });
   }
 

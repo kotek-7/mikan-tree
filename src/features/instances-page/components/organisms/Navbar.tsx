@@ -17,6 +17,7 @@ export default function Navbar() {
         { name: "Better MC [FORGE] - BMC4", icon: alice, id: "1" },
         { name: "The Pixelmon Modpack", icon: alice, id: "2" },
         { name: "RLCraft", icon: alice, id: "3" },
+        { name: "Prominence II RPG", icon: alice, id: "4" },
       ],
     });
   }
