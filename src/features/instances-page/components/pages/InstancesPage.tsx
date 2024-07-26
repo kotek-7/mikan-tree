@@ -2,20 +2,16 @@ import Navbar from "@/features/instances-page/components/organisms/Navbar";
 import ControlPanel from "@/features/instances-page/components/organisms/ControlPanel";
 import CardList from "@/features/instances-page/components/organisms/CardList";
 import { useEffect, useState } from "react";
-import { Card } from "@/features/instances-page/types/card";
-import { fetchInstances } from "@/features/instances-page/logics/fetchInstances";
+import { useCards } from "@/features/instances-page/hooks/useCards";
 
 export default function InstancesPage() {
-  useEffect(() => {
-    fetchInstances().then((instances) => {
-        const cards = instances.map((instance) => Card.fromInstance(instance))
-        setCards(cards);
-    })
-  }, []);
-
   const [selectedCardId, setSelectedCardId] = useState<string>("0");
 
-  const [cards, setCards] = useState<Card[]>([]);
+  const [cards, loadInstnces] = useCards();
+
+  useEffect(() => {
+    loadInstnces();
+  }, []);
 
   return (
     <div className="grid h-[100vh] grid-cols-[1fr_8rem] grid-rows-[min-content_1fr_1fr] overflow-hidden">
