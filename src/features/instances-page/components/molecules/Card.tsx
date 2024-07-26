@@ -4,9 +4,9 @@ import flan from "@/assets/images/flan.png"
 
 interface Props {
   title: string;
-  id: number;
+  id: string;
   selected: boolean;
-  onclick: (id: number) => void;
+  onclick: (id: string) => void;
 }
 
 export default function Card(props: Props) {

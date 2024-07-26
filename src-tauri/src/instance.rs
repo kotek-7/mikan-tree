@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Instance {
     name: String,
+    id: String,
     icon: String,
 }
 
@@ -21,7 +22,7 @@ pub fn serialize_and_write_instances(
     let path = app_data_path.join("instances.json");
     println!("write to: {}", path.to_str().unwrap());
 
-    let json = serde_json::to_string(&instances).unwrap();
+    let json = serde_json::to_string_pretty(&instances).unwrap();
     println!("generated json: {}", json);
 
     let _ = fs::write(path, &json);

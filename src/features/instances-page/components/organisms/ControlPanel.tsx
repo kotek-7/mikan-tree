@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { message } from "@tauri-apps/api/dialog";
 
 interface Props {
-  selectedCard: Card;
+  selectedCard?: Card;
 }
 
 export default function ControlPanel(props: Props) {
@@ -29,8 +29,8 @@ export default function ControlPanel(props: Props) {
 
   return (
     <div className="flex h-[85vh] flex-col border-l">
-      <div className="text-center">title: {props.selectedCard.title}</div>
-      <div className="text-center">id: {props.selectedCard.id}</div>
+      <div className="text-center">title: {props.selectedCard?.title ?? ""}</div>
+      <div className="text-center">id: {props.selectedCard?.id ?? ""}</div>
       <div className="flex-grow" />
       <ControlPanelButton onClick={clickMock}>Create New</ControlPanelButton>
       <ControlPanelButton onClick={openModsPage}>Edit</ControlPanelButton>

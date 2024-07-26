@@ -3,8 +3,8 @@ import InstanceCard from "@/features/instances-page/components/molecules/Card";
 
 interface Props {
   cards: Card[],
-  selectedCardId: number,
-  setSelectedCardId: (targetCardId: number) => void,
+  selectedCardId: string,
+  setSelectedCardId: (targetCardId: string) => void,
 }
 
 export default function CardList(props: Props) {

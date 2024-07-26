@@ -1,6 +1,7 @@
 import * as Menubar from "@radix-ui/react-menubar";
 import { MenubarContent, MenubarTrigger, MenubarItem } from "@/components/wrappers/Menubar";
 import { invoke } from "@tauri-apps/api";
+import alice from "@/assets/images/alice.png"
 
 export default function Navbar() {
   async function fetchInstances() {
@@ -12,8 +13,10 @@ export default function Navbar() {
   function writeInstances() {
     invoke("serialize_and_write_instances", {
       instances: [
-        { name: "Instance1", icon: "path/to/icon" },
-        { name: "Instance2", icon: "path/to/icon" },
+        { name: "All the Mods 9 - To the Sky - atm9sky", icon: alice, id: "0" },
+        { name: "Better MC [FORGE] - BMC4", icon: alice, id: "1" },
+        { name: "The Pixelmon Modpack", icon: alice, id: "2" },
+        { name: "RLCraft", icon: alice, id: "3" },
       ],
     });
   }
