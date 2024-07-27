@@ -18,6 +18,7 @@ export default function Navbar() {
         { name: "The Pixelmon Modpack", icon: alice, id: "2" },
         { name: "RLCraft", icon: alice, id: "3" },
         { name: "Prominence II RPG", icon: alice, id: "4" },
+        { name: "Prominence II RPG Reforged", icon: alice, id: "5" },
       ],
     });
   }
