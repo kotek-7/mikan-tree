@@ -1,5 +1,5 @@
-import ModListElement from "@/features/mods-page/components/molecules/ModListElement";
-import { Mod } from "@/features/mods-page/types/mod";
+import ModListElement from "@/features/instance-mods-page/components/molecules/ModListElement";
+import { Mod } from "@/features/instance-mods-page/types/mod";
 import icon from "@/assets/images/alice.png"
 import { Image } from "@/types/image";
 

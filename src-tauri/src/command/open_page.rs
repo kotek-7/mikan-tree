@@ -10,8 +10,8 @@ pub async fn open_docs(handle: tauri::AppHandle) {
 }
 
 #[tauri::command]
-pub async fn open_mods_page(handle: tauri::AppHandle) {
-    println!("open mods page");
+pub async fn open_instance_mods_page(handle: tauri::AppHandle) {
+    println!("open instance mods page");
     tauri::WindowBuilder::new(
         &handle,
         "mods", /* the unique window label */

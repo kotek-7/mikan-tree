@@ -19,8 +19,8 @@ export default function ControlPanel(props: Props) {
     console.log("clicked!");
   }
 
-  function openModsPage() {
-    invoke("open_mods_page");
+  function openInstanceModsPage() {
+    invoke("open_instance_mods_page");
   }
 
   async function show_info() {
@@ -33,7 +33,7 @@ export default function ControlPanel(props: Props) {
       <div className="text-center">id: {props.selectedCard?.id ?? ""}</div>
       <div className="flex-grow" />
       <ControlPanelButton onClick={clickMock}>Create New</ControlPanelButton>
-      <ControlPanelButton onClick={openModsPage}>Edit</ControlPanelButton>
+      <ControlPanelButton onClick={openInstanceModsPage}>Edit</ControlPanelButton>
       <ControlPanelButton onClick={show_info}>Change</ControlPanelButton>
       <ControlPanelButton onClick={clickMock}>Remove</ControlPanelButton>
     </div>

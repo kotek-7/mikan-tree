@@ -1,9 +1,9 @@
-import ModList from "@/features/mods-page/components/organisms/ModList";
-import { Mod } from "@/features/mods-page/types/mod";
+import ModList from "@/features/instance-mods-page/components/organisms/ModList";
+import { Mod } from "@/features/instance-mods-page/types/mod";
 import { useState } from "react";
-import ControlPanel from "@/features/mods-page/components/organisms/ControlPanel";
+import ControlPanel from "@/features/instance-mods-page/components/organisms/ControlPanel";
 
-export default function ModsPage() {
+export default function InstanceModsPage() {
   const mods: readonly Mod[] = [
     { name: "optifine", id: "0" },
     { name: "jei", id: "1" },

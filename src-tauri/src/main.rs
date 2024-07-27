@@ -13,7 +13,7 @@ fn main() {
         .invoke_handler(tauri::generate_handler![
             test::get_app_data_path,
             open_page::open_docs,
-            open_page::open_mods_page,
+            open_page::open_instance_mods_page,
             serde_instance::fetch_and_deserialize_instances,
             serde_instance::serialize_and_write_instances,
         ])
