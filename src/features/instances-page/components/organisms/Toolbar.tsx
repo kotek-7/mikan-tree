@@ -1,3 +1,4 @@
+import { invoke } from "@tauri-apps/api";
 import ToolbarItem from "../molecules/ToolbarItem";
 
 interface Props {
@@ -5,9 +6,13 @@ interface Props {
 }
 
 export default function Toolbar(props: Props){
+  function openModsPage() {
+    invoke("open_mods_page")
+  }
+  
   return (
     <div className="flex divide-x bg-slate-50 text-slate-800">
-      <ToolbarItem onClick={() => {console.log("toolbar item clicked")}}>Mods</ToolbarItem>
+      <ToolbarItem onClick={openModsPage}>Mods</ToolbarItem>
       <ToolbarItem onClick={props.loadInstances}>Reload</ToolbarItem>
       <ToolbarItem onClick={() => {console.log("toolbar item clicked")}}>Add</ToolbarItem>
     </div>
