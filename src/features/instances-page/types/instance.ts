@@ -4,7 +4,7 @@ export interface Instance {
   icon: string;
 }
 
-export function isInstance(obj: unknown) {
+export function isInstance(obj: unknown): obj is Instance {
   if (typeof obj !== "object" || obj === null) return false;
 
   const instance = obj as { [_ in keyof Instance]: unknown };
