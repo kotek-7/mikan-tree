@@ -11,7 +11,7 @@ export default function Toolbar(props: Props){
   }
   
   return (
-    <div className="flex divide-x bg-slate-50 text-slate-800">
+    <div className="flex divide-x bg-slate-100 text-slate-800">
       <ToolbarItem onClick={openModsPage}>Mods</ToolbarItem>
       <ToolbarItem onClick={props.loadInstances}>Reload</ToolbarItem>
       <ToolbarItem onClick={() => {console.log("toolbar item clicked")}}>Add</ToolbarItem>
