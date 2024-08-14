@@ -16,6 +16,7 @@ export function isImage(obj: unknown): obj is Image {
   if (typeof obj !== "object" || obj === null) {
     console.log("isImage: Passed obj is not object")
     console.log("isImage: Passed obj is not Image")
+    return false;
   }
 
   const image = obj as { [_ in keyof Image]: unknown };
@@ -23,6 +24,7 @@ export function isImage(obj: unknown): obj is Image {
   if (typeof image.path !== "string") {
     console.log("isImage: Passed obj does not have correct path")
     console.log("isImage: Passed obj is not Image")
+    return false;
   }
 
   console.log("isImage: Passed obj is Image")
