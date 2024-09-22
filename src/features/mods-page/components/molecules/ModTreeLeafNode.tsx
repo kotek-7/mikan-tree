@@ -1,13 +1,26 @@
-import { ModTreeLeafNode as LeafNode } from "@/features/mods-page/types/modTree";
+import { ModTreeLeafNode as LeafNodeData } from "@/features/mods-page/types/modTree";
+import { twMerge } from "tailwind-merge";
 
-export default function ModTreeLeafNode(node: LeafNode) {
+interface Props {
+  node: LeafNodeData;
+  selectedId: string;
+  onClick: (id: string) => void;
+}
+
+export default function ModTreeLeafNode(props: Props) {
   return (
-    <div className="rounded flex items-center gap-1 px-2 py-1 hover:bg-slate-100 active:bg-slate-200">
+    <button
+      onClick={() => props.onClick(props.node.id)}
+      className={twMerge(
+        "flex w-full items-center gap-1 rounded px-2 py-1 hover:bg-slate-100 active:bg-slate-200",
+        props.selectedId === props.node.id ? "bg-slate-200 hover:bg-slate-200 ring-1 ring-inset" : ""
+      )}
+    >
       <img
-        src={node.icon.path}
+        src={props.node.icon.path}
         className="h-7 w-7 object-cover"
       />
-      <div>{node.name}</div>
-    </div>
+      <div>{props.node.name}</div>
+    </button>
   );
 }
