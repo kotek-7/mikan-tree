@@ -9,9 +9,15 @@ pub struct Instance {
     icon: String,
 }
 
-pub fn serialize_and_write_instances(
-    app_handle: tauri::AppHandle,
-    instances: Vec<Instance>,
+impl PartialEq for Instance {
+    fn eq(&self, other: &Self) -> bool {
+        self.id == other.id
+    }
+}
+
+pub fn write_instances(
+    app_handle: &tauri::AppHandle,
+    instances: &Vec<Instance>,
 ) -> String {
     let app_data_path = app_handle.path_resolver().app_data_dir().unwrap();
 
@@ -30,8 +36,8 @@ pub fn serialize_and_write_instances(
     json
 }
 
-pub fn fetch_and_deserialize_instances(
-    app_handle: tauri::AppHandle,
+pub fn fetch_instances(
+    app_handle: &tauri::AppHandle,
 ) -> Vec<Instance> {
     let app_data_path = app_handle.path_resolver().app_data_dir().unwrap();
     let path = app_data_path.join("instances.json");
@@ -51,7 +57,16 @@ pub fn fetch_and_deserialize_instances(
     instances
 }
 
-fn initialize_instances(app_handle: tauri::AppHandle) -> String {
+fn initialize_instances(app_handle: &tauri::AppHandle) -> String {
     let instances = vec![];
-    serialize_and_write_instances(app_handle, instances)
+    write_instances(app_handle, &instances)
+}
+
+fn delete_instance(
+    app_handle: &tauri::AppHandle,
+    target_instance: &Instance,
+) {
+    let instances = fetch_instances(app_handle);
+    let processed_instnaces: Vec<Instance> = instances.iter().clone().filter(|instance: &&Instance| !(*instance).eq(&target_instance)).collect();
+    write_instances(app_handle, &processed_instnaces);
 }
