@@ -17,6 +17,8 @@ fn main() {
             open_page::open_mods_page,
             rw_instance::fetch_instances,
             rw_instance::write_instances,
+            rw_instance::delete_instance,
+            rw_instance::delete_instance_by_id,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

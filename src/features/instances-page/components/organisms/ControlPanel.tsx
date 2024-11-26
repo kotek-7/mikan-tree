@@ -3,9 +3,11 @@ import ControlPanelButton from "@/components/molecules/ControlPanelButton";
 import { Card } from "@/features/instances-page/types/card";
 import { useEffect, useState } from "react";
 import { message } from "@tauri-apps/api/dialog";
+import { deleteInstance } from "../../logics/deleteInstance";
 
 interface Props {
   selectedCard?: Card;
+  loadInstances: () => void;
 }
 
 export default function ControlPanel(props: Props) {
@@ -23,6 +25,17 @@ export default function ControlPanel(props: Props) {
     invoke("open_instance_mods_page");
   }
 
+  async function removeInstanceAndReload() {
+    const id = props.selectedCard?.id;
+    console.log(`removeInstanceAndReload: Removing instance with id ${id}`);
+    if (id == undefined) {
+      console.log("error!")
+      throw new ReferenceError("Card not selected!");
+    }
+    deleteInstance(id);
+    props.loadInstances();
+  }
+
   async function show_info() {
     await message(path)
   }
@@ -35,7 +48,7 @@ export default function ControlPanel(props: Props) {
       <ControlPanelButton onClick={clickMock}>Create New</ControlPanelButton>
       <ControlPanelButton onClick={openInstanceModsPage}>Edit</ControlPanelButton>
       <ControlPanelButton onClick={show_info}>Change</ControlPanelButton>
-      <ControlPanelButton onClick={clickMock}>Remove</ControlPanelButton>
+      <ControlPanelButton onClick={removeInstanceAndReload}>Remove</ControlPanelButton>
     </div>
   );
 }

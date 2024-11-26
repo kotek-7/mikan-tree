@@ -72,3 +72,14 @@ pub fn delete_instance(
     let processed_instnaces: Vec<_> = instance_iter_filtered.collect();
     write_instances(app_handle, &processed_instnaces);
 }
+
+pub fn delete_instance_by_id(
+    app_handle: &tauri::AppHandle,
+    target_id: &str,
+) {
+    let instances = fetch_instances(app_handle);
+    let instance_iter = instances.iter().cloned();
+    let instance_iter_filtered = instance_iter.filter(|instance| instance.id != target_id);
+    let processed_instnaces: Vec<_> = instance_iter_filtered.collect();
+    write_instances(app_handle, &processed_instnaces);
+}

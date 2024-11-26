@@ -20,7 +20,7 @@ export default function InstancesPage() {
         <Navbar />
       </div>
       <div className="col-span-full">
-        <Toolbar loadInstances={loadInstnces}/>
+        <Toolbar loadInstances={loadInstnces} />
       </div>
       <div>
         <CardList
@@ -30,7 +30,10 @@ export default function InstancesPage() {
         />
       </div>
       <div className="">
-        <ControlPanel selectedCard={cards.find((card) => (card.id == selectedCardId))} />
+        <ControlPanel
+          selectedCard={cards.find((card) => card.id == selectedCardId)}
+          loadInstances={loadInstnces}
+        />
       </div>
     </div>
   );
