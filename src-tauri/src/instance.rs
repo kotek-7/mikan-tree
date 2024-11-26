@@ -1,8 +1,8 @@
-use std::fs::{self, create_dir_all};
+use std::{fs::{self, create_dir_all}, vec};
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Instance {
     name: String,
     id: String,
@@ -67,6 +67,8 @@ fn delete_instance(
     target_instance: &Instance,
 ) {
     let instances = fetch_instances(app_handle);
-    let processed_instnaces: Vec<Instance> = instances.iter().clone().filter(|instance: &&Instance| !(*instance).eq(&target_instance)).collect();
+    let instance_iter = instances.iter().cloned();
+    let instance_iter_filtered = instance_iter.filter(|instance| !(*instance).eq(&target_instance));
+    let processed_instnaces: Vec<_> = instance_iter_filtered.collect();
     write_instances(app_handle, &processed_instnaces);
 }
