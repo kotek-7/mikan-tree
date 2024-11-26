@@ -62,13 +62,13 @@ fn initialize_instances(app_handle: &tauri::AppHandle) -> String {
     write_instances(app_handle, &instances)
 }
 
-fn delete_instance(
+pub fn delete_instance(
     app_handle: &tauri::AppHandle,
     target_instance: &Instance,
 ) {
     let instances = fetch_instances(app_handle);
     let instance_iter = instances.iter().cloned();
-    let instance_iter_filtered = instance_iter.filter(|instance| !(*instance).eq(&target_instance));
+    let instance_iter_filtered = instance_iter.filter(|instance| !(*instance).eq(target_instance));
     let processed_instnaces: Vec<_> = instance_iter_filtered.collect();
     write_instances(app_handle, &processed_instnaces);
 }
