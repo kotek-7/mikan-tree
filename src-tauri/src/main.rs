@@ -6,7 +6,7 @@ mod instance;
 
 use crate::command::open_page;
 use crate::command::test;
-use crate::command::serde_instance;
+use crate::command::rw_instance;
 
 fn main() {
     tauri::Builder::default()
@@ -15,8 +15,8 @@ fn main() {
             open_page::open_docs,
             open_page::open_instance_mods_page,
             open_page::open_mods_page,
-            serde_instance::fetch_and_deserialize_instances,
-            serde_instance::serialize_and_write_instances,
+            rw_instance::fetch_instances,
+            rw_instance::write_instances,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
