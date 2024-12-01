@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card } from "@/features/instances-page/types/card";
-import { fetchInstances } from "../logics/fetchInstances";
+import { fetchInstances } from "../logics/rwInstances";
 
 export function useCards(): [Card[], () => void] {
   const [cards, setCards] = useState<Card[]>([]);

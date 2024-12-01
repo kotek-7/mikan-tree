@@ -7,3 +7,7 @@ export async function fetchInstances() {
     throw new TypeError("Passed argument is not array of instance");
   return instances;
 }
+export async function deleteInstance(id: string) {
+  invoke("delete_instance_by_id", { targetId: id });
+  console.log(`deleteInstance: deletedInstance! (id:${id})`)
+}
