@@ -20,3 +20,8 @@ pub fn delete_instance(app_handle: tauri::AppHandle, target_instance: Instance) 
 pub fn delete_instance_by_id(app_handle: tauri::AppHandle, target_id: &str) {
     instance::delete_instance_by_id(&app_handle, target_id);
 }
+
+#[tauri::command()]
+pub fn create_instance(app_handle: tauri::AppHandle, instance: Instance) {
+    instance::create_instance(&app_handle, &instance);
+}

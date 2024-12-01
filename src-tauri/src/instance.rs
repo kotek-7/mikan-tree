@@ -83,3 +83,12 @@ pub fn delete_instance_by_id(
     let processed_instnaces: Vec<_> = instance_iter_filtered.collect();
     write_instances(app_handle, &processed_instnaces);
 }
+
+pub fn create_instance(
+    app_handle: &tauri::AppHandle,
+    instance: &Instance
+) {
+    let original_instances = fetch_instances(app_handle);
+    let extended_instances = [original_instances, vec![instance.clone()]].concat();
+    write_instances(app_handle, &extended_instances);
+}

@@ -19,6 +19,7 @@ fn main() {
             rw_instance::write_instances,
             rw_instance::delete_instance,
             rw_instance::delete_instance_by_id,
+            rw_instance::create_instance,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
