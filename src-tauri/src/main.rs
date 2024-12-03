@@ -5,11 +5,14 @@ mod command;
 mod instance;
 
 use crate::command::open_page;
-use crate::command::test;
 use crate::command::rw_instance;
+use crate::command::test;
 
 fn main() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_fs::init())
+        .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_shell::init())
         .invoke_handler(tauri::generate_handler![
             test::get_app_data_path,
             open_page::open_docs,

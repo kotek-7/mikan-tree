@@ -1,4 +1,4 @@
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/core";
 import { isInstance } from "../types/instance";
 
 export async function fetchInstances() {

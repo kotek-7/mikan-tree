@@ -1,5 +1,5 @@
-use crate::instance::Instance;
 use crate::instance;
+use crate::instance::Instance;
 
 #[tauri::command]
 pub fn write_instances(app_handle: tauri::AppHandle, instances: Vec<Instance>) -> String {

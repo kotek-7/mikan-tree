@@ -1,6 +1,8 @@
+use tauri::Manager;
+
 #[tauri::command]
 pub async fn get_app_data_path(app_handle: tauri::AppHandle) -> String {
-    let path_resolver = app_handle.path_resolver();
+    let path_resolver = app_handle.path();
 
     let app_data_path = path_resolver.app_data_dir();
     let app_data_path = app_data_path.unwrap().to_str().unwrap().to_string();

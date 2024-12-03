@@ -1,8 +1,8 @@
-import { invoke } from "@tauri-apps/api/tauri";
+import { invoke } from "@tauri-apps/api/core";
 import ControlPanelButton from "@/components/molecules/ControlPanelButton";
 import { Card } from "@/features/instances-page/types/card";
 import { useEffect, useState } from "react";
-import { message } from "@tauri-apps/api/dialog";
+import { message } from "@tauri-apps/plugin-dialog";
 import { deleteInstance } from "../../logics/rwInstances";
 
 interface Props {

@@ -1,6 +1,10 @@
-use std::{fs::{self, create_dir_all}, vec};
+use std::{
+    fs::{self, create_dir_all},
+    vec,
+};
 
 use serde::{Deserialize, Serialize};
+use tauri::Manager;
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Instance {
@@ -15,11 +19,8 @@ impl PartialEq for Instance {
     }
 }
 
-pub fn write_instances(
-    app_handle: &tauri::AppHandle,
-    instances: &Vec<Instance>,
-) -> String {
-    let app_data_path = app_handle.path_resolver().app_data_dir().unwrap();
+pub fn write_instances(app_handle: &tauri::AppHandle, instances: &Vec<Instance>) -> String {
+    let app_data_path = app_handle.path().app_data_dir().unwrap();
 
     if !app_data_path.exists() {
         let _ = create_dir_all(&app_data_path);
@@ -36,10 +37,8 @@ pub fn write_instances(
     json
 }
 
-pub fn fetch_instances(
-    app_handle: &tauri::AppHandle,
-) -> Vec<Instance> {
-    let app_data_path = app_handle.path_resolver().app_data_dir().unwrap();
+pub fn fetch_instances(app_handle: &tauri::AppHandle) -> Vec<Instance> {
+    let app_data_path = app_handle.path().app_data_dir().unwrap();
     let path = app_data_path.join("instances.json");
     println!("read: {}", path.to_str().unwrap());
 
@@ -62,10 +61,7 @@ fn initialize_instances(app_handle: &tauri::AppHandle) -> String {
     write_instances(app_handle, &instances)
 }
 
-pub fn delete_instance(
-    app_handle: &tauri::AppHandle,
-    target_instance: &Instance,
-) {
+pub fn delete_instance(app_handle: &tauri::AppHandle, target_instance: &Instance) {
     let instances = fetch_instances(app_handle);
     let instance_iter = instances.iter().cloned();
     let instance_iter_filtered = instance_iter.filter(|instance| !(*instance).eq(target_instance));
@@ -73,10 +69,7 @@ pub fn delete_instance(
     write_instances(app_handle, &processed_instnaces);
 }
 
-pub fn delete_instance_by_id(
-    app_handle: &tauri::AppHandle,
-    target_id: &str,
-) {
+pub fn delete_instance_by_id(app_handle: &tauri::AppHandle, target_id: &str) {
     let instances = fetch_instances(app_handle);
     let instance_iter = instances.iter().cloned();
     let instance_iter_filtered = instance_iter.filter(|instance| instance.id != target_id);
@@ -84,10 +77,7 @@ pub fn delete_instance_by_id(
     write_instances(app_handle, &processed_instnaces);
 }
 
-pub fn create_instance(
-    app_handle: &tauri::AppHandle,
-    instance: &Instance
-) {
+pub fn create_instance(app_handle: &tauri::AppHandle, instance: &Instance) {
     let original_instances = fetch_instances(app_handle);
     let extended_instances = [original_instances, vec![instance.clone()]].concat();
     write_instances(app_handle, &extended_instances);

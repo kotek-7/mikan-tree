@@ -1,6 +1,6 @@
 import * as Menubar from "@radix-ui/react-menubar";
 import { MenubarContent, MenubarTrigger, MenubarItem } from "@/components/wrappers/Menubar";
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/core";
 import alice from "@/assets/images/alice.png"
 
 export default function Navbar() {
