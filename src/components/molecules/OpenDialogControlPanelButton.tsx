@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import ControlPanelButton from "./ControlPanelButton";
 
 interface Props {
-  buttonContent: ReactNode;
+  children: ReactNode;
   dialogContent: ReactNode;
 }
 
@@ -12,11 +12,11 @@ export default function OpenDialogControlPanelButton(props: Props) {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <ControlPanelButton onClick={() => { return; }}>{props.buttonContent}</ControlPanelButton>
+        <ControlPanelButton onClick={() => { return; }}>{props.children}</ControlPanelButton>
       </Dialog.Trigger>
       <Dialog.Portal>
         <DialogOverlay />
-        <Dialog.Content>
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-6 shadow rounded">
           {props.dialogContent}
         </Dialog.Content>
       </Dialog.Portal>

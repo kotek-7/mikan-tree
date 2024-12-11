@@ -4,6 +4,8 @@ import { Card } from "@/features/instances-page/types/card";
 import { useEffect, useState } from "react";
 import { message } from "@tauri-apps/plugin-dialog";
 import { deleteInstance } from "../../logics/rwInstances";
+import OpenDialogControlPanelButton from "@/components/molecules/OpenDialogControlPanelButton";
+import * as Dialog from "@radix-ui/react-dialog";
 
 interface Props {
   selectedCard?: Card;
@@ -14,8 +16,6 @@ export default function ControlPanel(props: Props) {
   useEffect(() => {
     invoke("get_app_data_path").then((path) => {setPath(path as string)});
   }, [])
-
-  const [path, setPath] = useState("");
 
   function clickMock() {
     console.log("clicked!");
@@ -40,12 +40,30 @@ export default function ControlPanel(props: Props) {
     await message(path)
   }
 
+  const [path, setPath] = useState("");
+
+  const dialogContent = (
+    <div className="w-40">
+      <Dialog.Title className="text-xl">Title</Dialog.Title>
+      <div className="mt-3">
+        <Dialog.Description>Description</Dialog.Description>
+      </div>
+      <div className="mt-4 flex justify-end">
+        <Dialog.Close asChild>
+          <button className="px-2 py-0.5 rounded text-slate-100 bg-slate-800">
+            Close
+          </button>
+        </Dialog.Close>
+      </div>
+    </div>
+  )
+
   return (
     <div className="flex h-[85vh] flex-col border-l">
       <div className="text-center">title: {props.selectedCard?.title ?? ""}</div>
       <div className="text-center">id: {props.selectedCard?.id ?? ""}</div>
       <div className="flex-grow" />
-      <ControlPanelButton onClick={clickMock}>Create New</ControlPanelButton>
+      <OpenDialogControlPanelButton dialogContent={dialogContent}>Create New</OpenDialogControlPanelButton>
       <ControlPanelButton onClick={openInstanceModsPage}>Edit</ControlPanelButton>
       <ControlPanelButton onClick={show_info}>Change</ControlPanelButton>
       <ControlPanelButton onClick={removeInstanceAndReload}>Remove</ControlPanelButton>

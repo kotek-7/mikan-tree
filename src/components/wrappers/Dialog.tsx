@@ -5,7 +5,7 @@ export const DialogOverlay = forwardRef<ElementRef<typeof Overlay>, ComponentPro
   (props, ref) => (
     <Overlay
       ref={ref}
-      className="fixed inset-0 bg-black/90"
+      className="fixed inset-0 bg-black/50"
       {...props}
     />
   )
