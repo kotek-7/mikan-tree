@@ -14,12 +14,8 @@ interface Props {
 
 export default function ControlPanel(props: Props) {
   useEffect(() => {
-    invoke("get_app_data_path").then((path) => {setPath(path as string)});
+    invoke("get_app_data_path").then((path) => { setPath(path as string) });
   }, [])
-
-  function clickMock() {
-    console.log("clicked!");
-  }
 
   function openInstanceModsPage() {
     invoke("open_instance_mods_page");
@@ -50,7 +46,7 @@ export default function ControlPanel(props: Props) {
       </div>
       <div className="mt-4 flex justify-end">
         <Dialog.Close asChild>
-          <button className="px-2 py-0.5 rounded text-slate-100 bg-slate-800">
+          <button className="px-4 py-1 hover:bg-slate-100 active:bg-slate-200 rounded">
             Close
           </button>
         </Dialog.Close>
