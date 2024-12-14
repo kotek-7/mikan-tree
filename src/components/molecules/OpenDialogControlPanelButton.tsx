@@ -16,9 +16,7 @@ export default function OpenDialogControlPanelButton(props: Props) {
       </Dialog.Trigger>
       <Dialog.Portal>
         <DialogOverlay />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-6 shadow rounded">
-          {props.dialogContent}
-        </Dialog.Content>
+        {props.dialogContent}
       </Dialog.Portal>
     </Dialog.Root>
   );

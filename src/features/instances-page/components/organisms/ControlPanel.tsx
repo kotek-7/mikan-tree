@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { message } from "@tauri-apps/plugin-dialog";
 import { deleteInstance } from "../../logics/rwInstances";
 import OpenDialogControlPanelButton from "@/components/molecules/OpenDialogControlPanelButton";
-import { CreateInstanceDialog } from "./CreateInstanceDialog";
+import CreateInstanceDialog from "./CreateInstanceDialog";
 
 interface Props {
   selectedCard?: Card;
