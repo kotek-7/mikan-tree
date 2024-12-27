@@ -14,6 +14,7 @@ export default function CardList(props: Props) {
         <InstanceCard
           key={card.id}
           title={card.title}
+          iconPath={card.iconPath}
           id={card.id}
           selected={card.id == props.selectedCardId}
           onclick={(clickedCardId) => props.setSelectedCardId(clickedCardId)}

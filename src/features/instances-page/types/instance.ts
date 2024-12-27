@@ -1,7 +1,7 @@
 export interface Instance {
   name: string;
   id: string;
-  icon: string;
+  iconPath: string;
 }
 
 export function isInstance(obj: unknown): obj is Instance {
@@ -11,7 +11,7 @@ export function isInstance(obj: unknown): obj is Instance {
 
   if (typeof instance.name !== "string") return false;
   if (typeof instance.id !== "string") return false;
-  if (typeof instance.icon !== "string") return false;
+  if (typeof instance.iconPath !== "string") return false;
 
   return true;
 }

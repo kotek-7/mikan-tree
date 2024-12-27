@@ -1,12 +1,13 @@
-import { ReactNode } from "react";
+import { ComponentPropsWithRef, ReactNode } from "react";
 
-interface Props {
-  children: ReactNode;
-  onClick: () => void;
-}
-
-export default function ControlPanelButton(props: Props) {
+export default function ControlPanelButton(props: { children: ReactNode } & ComponentPropsWithRef<"button">) {
   return (
-    <button onClick={props.onClick} className="w-full text-center rounded bg-white px-3 py-0.5 hover:bg-slate-100 active:bg-slate-200">{props.children}</button>
+    <button
+      ref={props.ref}
+      onClick={props.onClick}
+      className="w-full rounded bg-white px-3 py-0.5 text-center hover:bg-slate-100 active:bg-slate-200"
+    >
+      {props.children}
+    </button>
   );
 }

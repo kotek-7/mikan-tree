@@ -10,7 +10,7 @@ use tauri::Manager;
 pub struct Instance {
     name: String,
     id: String,
-    icon: String,
+    icon_path: String,
 }
 
 impl PartialEq for Instance {
@@ -81,4 +81,15 @@ pub fn create_instance(app_handle: &tauri::AppHandle, instance: &Instance) {
     let original_instances = fetch_instances(app_handle);
     let extended_instances = [original_instances, vec![instance.clone()]].concat();
     write_instances(app_handle, &extended_instances);
+}
+
+pub fn create_new_instance(app_handle: &tauri::AppHandle, name: &str, icon: &str) {
+    create_instance(
+        app_handle,
+        &Instance {
+            name: name.to_string(),
+            id: "102".to_string(),
+            icon_path: icon.to_string(),
+        },
+    );
 }

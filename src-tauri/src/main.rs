@@ -15,6 +15,8 @@ fn main() {
         .plugin(tauri_plugin_shell::init())
         .invoke_handler(tauri::generate_handler![
             test::get_app_data_path,
+            test::get_struct,
+            test::get_structs,
             open_page::open_docs,
             open_page::open_instance_mods_page,
             open_page::open_mods_page,
@@ -23,6 +25,7 @@ fn main() {
             rw_instance::delete_instance,
             rw_instance::delete_instance_by_id,
             rw_instance::create_instance,
+            rw_instance::create_new_instance,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
