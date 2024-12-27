@@ -1,6 +1,6 @@
 import { InvokeArgs, InvokeOptions, invoke as tauriInvoke } from "@tauri-apps/api/core";
 
-// Tauri invoke but returns an object with camelCase keys
+// Tauri invoke but accepts arguments of objects with camelCase keys and returns an object with camelCase keys
 export async function invoke<T>(cmd: string, args?: InvokeArgs, options?: InvokeOptions) {
   let snakeCaseArgs = toSnakeKeysObj(args)
   let snakeCaseValue = await tauriInvoke<T>(cmd, snakeCaseArgs, options);
