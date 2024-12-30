@@ -1,9 +1,9 @@
-mod command;
+mod commands;
 mod instance;
 
-use crate::command::open_page;
-use crate::command::rw_instance;
-use crate::command::test;
+use crate::commands::open_page;
+use crate::commands::rw_instance;
+use crate::commands::test;
 
 pub fn run() {
     tauri::Builder::default()
