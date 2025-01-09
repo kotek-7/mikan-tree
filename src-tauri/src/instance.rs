@@ -19,6 +19,8 @@ impl PartialEq for Instance {
     }
 }
 
+/// Vec<Instance>をinstances.jsonに書き込みます。
+/// instances.jsonにVecを追加するのではなく、instances.jsonを渡されたVecで丸ごと置換します。
 pub fn write_instances(app_handle: &tauri::AppHandle, instances: &Vec<Instance>) -> String {
     let app_data_path = app_handle.path().app_data_dir().unwrap();
 
@@ -37,6 +39,7 @@ pub fn write_instances(app_handle: &tauri::AppHandle, instances: &Vec<Instance>)
     json
 }
 
+/// instances.jsonを読み取ります。
 pub fn fetch_instances(app_handle: &tauri::AppHandle) -> Vec<Instance> {
     let app_data_path = app_handle.path().app_data_dir().unwrap();
     let path = app_data_path.join("instances.json");
@@ -56,11 +59,13 @@ pub fn fetch_instances(app_handle: &tauri::AppHandle) -> Vec<Instance> {
     instances
 }
 
+/// instances.jsonを空の配列で初期化します。
 fn initialize_instances(app_handle: &tauri::AppHandle) -> String {
     let instances = vec![];
     write_instances(app_handle, &instances)
 }
 
+/// 指定されたInstanceと一致するInstanceをinstances.jsonから削除します。
 pub fn delete_instance(app_handle: &tauri::AppHandle, target_instance: &Instance) {
     let instances = fetch_instances(app_handle);
     let instance_iter = instances.iter().cloned();
@@ -69,6 +74,7 @@ pub fn delete_instance(app_handle: &tauri::AppHandle, target_instance: &Instance
     write_instances(app_handle, &processed_instnaces);
 }
 
+/// Idの一致するInstanceをinstances.jsonから削除します。
 pub fn delete_instance_by_id(app_handle: &tauri::AppHandle, target_id: &str) {
     let instances = fetch_instances(app_handle);
     let instance_iter = instances.iter().cloned();
@@ -77,12 +83,14 @@ pub fn delete_instance_by_id(app_handle: &tauri::AppHandle, target_id: &str) {
     write_instances(app_handle, &processed_instnaces);
 }
 
+/// 受け取ったInstanceをinstances.jsonに追加します。
 pub fn create_instance(app_handle: &tauri::AppHandle, instance: &Instance) {
     let original_instances = fetch_instances(app_handle);
     let extended_instances = [original_instances, vec![instance.clone()]].concat();
     write_instances(app_handle, &extended_instances);
 }
 
+/// Instanceを新しく生成してinstances.jsonに追加します。
 pub fn create_new_instance(app_handle: &tauri::AppHandle, name: &str, icon: &str) {
     create_instance(
         app_handle,
